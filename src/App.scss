@@ -1,0 +1,20 @@
+body{
+    background: rgb(212, 212, 212);
+}
+
+.wrapper{
+    width: 700px;
+    min-height: 700px;
+    margin: 70px auto;
+    background: seagreen;
+    border-radius: 25px;
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Seymour One', sans-serif;
+    letter-spacing: 1.3px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+}

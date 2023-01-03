@@ -1,0 +1,26 @@
+.users {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+
+  img {
+    display: flex;
+  }
+  .initials {
+    display: flex;
+    position: relative;
+    margin: 0 0 0 0;
+    bottom: 12px;
+    align-items: center;
+    p {
+      margin: 0 0 0 5px;
+    }
+  }
+}
+b {
+    display: flex;
+    position: relative;
+    left: 65px;
+    bottom: 23px;
+    font-size: 13px;
+  }
