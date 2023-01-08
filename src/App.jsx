@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import List from "./components/List";
 
@@ -18,6 +18,15 @@ function App() {
     },
   ];
   const [usersCount, setUsersCount] = useState(data);
+  const addUser = () => {
+    const newData = {
+      id: Math.random(),
+      name: "",
+      surname: "",
+      number: "",
+    };
+    setUsersCount([...usersCount, newData]);
+  };
 
   const result = usersCount.map((obj) => {
     return (
@@ -32,8 +41,11 @@ function App() {
     <div className="app">
       <div className="wrapper">
         <h1>Contact list</h1>
-        <button>Add</button>
-        {result}
+        <button onClick={() => addUser()}>Create</button> <br />
+        <div>
+
+        </div>
+        <div>{result}</div>
       </div>
     </div>
   );
