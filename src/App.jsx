@@ -3,10 +3,20 @@ import "./App.scss";
 import List from "./components/List";
 
 function App() {
+  const [nameState, setNameState] = useState({name: '', surname: '',}) 
+  const handleChange = e => {
+    const { name, surname, number, value } = e.target;
+    setNameState(prevState => ({
+        ...prevState,
+        [name]: value,
+        [surname]: value,
+        [number]: value
+    }));
+};
   const data = [
     {
       id: 1,
-      name: "name1",
+      name: 'name1',
       surname: "surname1",
       number: "+380",
     },
@@ -17,13 +27,14 @@ function App() {
       number: "+380",
     },
   ];
+
   const [usersCount, setUsersCount] = useState(data);
   const addUser = () => {
     const newData = {
       id: Math.random(),
-      name: "",
-      surname: "",
-      number: "",
+      name: `${nameState.name}`,
+      surname: `${nameState.surname}`,
+      number: `+38${nameState.number}`,
     };
     setUsersCount([...usersCount, newData]);
   };
@@ -42,8 +53,11 @@ function App() {
       <div className="wrapper">
         <h1>Contact list</h1>
         <button onClick={() => addUser()}>Create</button> <br />
-        <div>
-
+        <div className="inputs">
+          <input type="text" value={nameState.name} onChange={handleChange} name='name' placeholder='Enter you name'/>
+          <input type="text" value={nameState.surname} onChange={handleChange} name='surname' placeholder='Enter you surname'/>
+          <p>(+38)</p>
+          <input type="text" value={nameState.number} onChange={handleChange} name='number' placeholder='Enter you number'/>
         </div>
         <div>{result}</div>
       </div>
